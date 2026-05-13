@@ -1,0 +1,139 @@
+/* ==========================================================
+   responsive.css — Breakpoint overrides
+   Mobile-first adjustments for tablets and phones.
+   ========================================================== */
+
+
+/* ---- Tablet & below (≤ 900px) ---- */
+@media (max-width: 900px) {
+
+  /* Stack two-column grids into one column */
+  .about__grid,
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  /* Programs: 2 cols on tablet */
+  .programs__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Pricing cards stack */
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin-inline: auto;
+  }
+
+  /* Smaller hero text */
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+}
+
+
+/* ---- Mobile (≤ 640px) ---- */
+@media (max-width: 640px) {
+
+  /* Show hamburger, hide desktop links */
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__links {
+    /* Hidden off-screen by default; JS toggles .nav__links--open */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--color-dark);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: calc(var(--nav-height) + var(--space-xl)) var(--space-xl) var(--space-xl);
+    gap: var(--space-lg);
+    transform: translateX(100%);
+    transition: transform var(--transition-med);
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .nav__links--open {
+    transform: translateX(0);
+  }
+
+  /* Backdrop when menu is open */
+  .nav__backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+  }
+
+  .nav__backdrop--visible {
+    display: block;
+  }
+
+  /* Programs: single column on phone */
+  .programs__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Smaller hero */
+  h1 { font-size: var(--text-3xl); }
+
+  .hero__logo {
+    width: 130px;
+  }
+
+  .hero__tagline {
+    font-size: var(--text-base);
+  }
+
+  /* Section padding reduction */
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  /* Schedule table scrolls horizontally */
+  .schedule-table th,
+  .schedule-table td {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  /* Modal: extra-compact on small phones so entire form is visible */
+  .modal__dialog {
+    padding: var(--space-lg);
+    max-height: 98vh;
+    width: 94%;
+  }
+
+  .modal__title {
+    font-size: var(--text-xl);
+  }
+
+  .modal__subtitle {
+    margin-bottom: var(--space-md);
+  }
+
+  .modal .form {
+    gap: var(--space-sm);
+  }
+
+  .modal .form__label {
+    font-size: var(--text-xs);
+  }
+
+  .modal .form__input,
+  .modal .form__select,
+  .modal .form__textarea {
+    padding: 0.5rem var(--space-sm);
+  }
+
+  .modal .form__textarea {
+    min-height: 44px;
+  }
+}

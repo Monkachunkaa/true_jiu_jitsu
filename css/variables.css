@@ -1,0 +1,55 @@
+/* ==========================================================
+   variables.css — Design tokens for True Jiu Jitsu
+   All colors, fonts, spacing, and sizing live here so the
+   entire site's look can be tuned from one place.
+   ========================================================== */
+
+:root {
+  /* ---- Brand Colors ---- */
+  --color-black:       #0a0a0a;
+  --color-dark:        #141414;
+  --color-dark-gray:   #1e1e1e;
+  --color-mid-gray:    #2a2a2a;
+  --color-gray:        #888888;
+  --color-light-gray:  #cccccc;
+  --color-off-white:   #f0f0f0;
+  --color-white:       #ffffff;
+  --color-red:         #c41e2a;       /* Primary brand red — from the logo belt */
+  --color-red-dark:    #9a1620;
+  --color-red-glow:    rgba(196, 30, 42, 0.35);
+
+  /* ---- Typography ---- */
+  /* Oswald for bold headings; Barlow for clean body text */
+  --font-heading:  'Oswald', sans-serif;
+  --font-body:     'Barlow', sans-serif;
+
+  /* ---- Font Sizes ---- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.75rem;
+  --text-5xl:  3.5rem;
+
+  /* ---- Spacing Scale ---- */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* ---- Layout ---- */
+  --max-width:     1200px;
+  --border-radius: 4px;
+  --nav-height:    80px;
+
+  /* ---- Transitions ---- */
+  --transition-fast: 0.2s ease;
+  --transition-med:  0.35s ease;
+}

@@ -1,0 +1,329 @@
+/* ==========================================================
+   layout.css — Section-level layout for each page block
+   Nav → Hero → About → Schedule → Pricing → Contact → Footer
+   ========================================================== */
+
+
+/* ==========================
+   NAVIGATION
+   Fixed top bar; transparent until scrolled.
+   ========================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: background var(--transition-med), box-shadow var(--transition-med);
+}
+
+/* JS adds .nav--scrolled when user scrolls past hero */
+.nav--scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo img {
+  height: 70px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.nav__link {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-off-white);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Red underline hover effect on nav links */
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-red);
+  transition: width var(--transition-fast);
+}
+
+.nav__link:hover {
+  color: var(--color-white);
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* Hamburger icon — hidden on desktop, shown on mobile */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--space-sm);
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+
+/* ==========================
+   HERO
+   Full-viewport intro with background image overlay.
+   ========================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Gym photo as background */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('../img/true_jiu_jitsu_gym.webp') center/cover no-repeat;
+  filter: brightness(0.3);
+  z-index: 0;
+}
+
+/* Subtle red gradient at the bottom of the hero */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(196, 30, 42, 0.08) 85%,
+    var(--color-black) 100%
+  );
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: var(--space-xl);
+}
+
+.hero__logo {
+  width: 180px;
+  margin: 0 auto var(--space-xl);
+  /* slight drop shadow so logo pops off dark bg */
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.6));
+}
+
+.hero__tagline {
+  font-size: var(--text-xl);
+  color: var(--color-light-gray);
+  margin-bottom: var(--space-2xl);
+  font-weight: 300;
+}
+
+.hero__tagline strong {
+  color: var(--color-red);
+  font-weight: 600;
+}
+
+
+/* ==========================
+   ABOUT
+   Two-column: text left, image right.
+   ========================== */
+.about {
+  background: var(--color-dark);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.about__text p {
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-lg);
+}
+
+/* Gym image with a subtle red accent border */
+.about__image-wrap {
+  position: relative;
+}
+
+.about__image-wrap img {
+  border-radius: var(--border-radius);
+}
+
+/* Decorative red corner accent behind the image */
+.about__image-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--color-red);
+  border-radius: var(--border-radius);
+  z-index: -1;
+}
+
+
+/* ==========================
+   PROGRAMS
+   Three feature cards in a row.
+   ========================== */
+.programs {
+  background: var(--color-black);
+}
+
+.programs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+
+/* ==========================
+   SCHEDULE
+   Full-width table on a dark card.
+   ========================== */
+.schedule {
+  background: var(--color-dark);
+}
+
+.schedule__table-wrap {
+  overflow-x: auto;
+  margin-top: var(--space-2xl);
+}
+
+
+/* ==========================
+   PRICING
+   Two pricing cards side by side.
+   ========================== */
+.pricing {
+  background: var(--color-black);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+
+/* ==========================
+   CONTACT
+   Lead-gen form — the main conversion point.
+   Two-column: info left, form right.
+   ========================== */
+.contact {
+  background: var(--color-dark);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  margin-top: var(--space-2xl);
+}
+
+.contact__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+/* Red icon circle */
+.contact__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--color-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-white);
+}
+
+.contact__info-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gray);
+  margin-bottom: var(--space-xs);
+}
+
+.contact__info-value {
+  color: var(--color-off-white);
+  font-size: var(--text-lg);
+}
+
+.contact__info-value a {
+  color: var(--color-off-white);
+}
+
+.contact__info-value a:hover {
+  color: var(--color-red);
+}
+
+
+/* ==========================
+   FOOTER
+   Minimal dark footer with centered text.
+   ========================== */
+.footer {
+  background: var(--color-black);
+  border-top: 1px solid var(--color-mid-gray);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.footer__text {
+  font-size: var(--text-sm);
+  color: var(--color-gray);
+}
