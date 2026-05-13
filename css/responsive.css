@@ -40,6 +40,11 @@
     display: flex;
   }
 
+  /* Show X close button inside the mobile menu */
+  .nav__close {
+    display: block;
+  }
+
   .nav__links {
     /* Hidden off-screen by default; JS toggles .nav__links--open */
     position: fixed;
@@ -97,11 +102,14 @@
     padding: var(--space-3xl) 0;
   }
 
-  /* Schedule table scrolls horizontally */
-  .schedule-table th,
-  .schedule-table td {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--text-sm);
+  /* Schedule: hide table, show stacked day cards */
+  .schedule__table-wrap {
+    display: none;
+  }
+
+  .schedule__cards {
+    display: block;
+    margin-top: var(--space-2xl);
   }
 
   /* Modal: extra-compact on small phones so entire form is visible */

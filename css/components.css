@@ -543,6 +543,61 @@
 
 
 /* ==========================
+   SCHEDULE CARDS (Mobile)
+   Stacked day-by-day layout that replaces the
+   table on small screens. Hidden on desktop.
+   ========================== */
+
+/* Hidden on desktop by default; shown via responsive.css */
+.schedule__cards {
+  display: none;
+}
+
+.schedule-card {
+  background: var(--color-dark-gray);
+  border: 1px solid var(--color-mid-gray);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+}
+
+.schedule-card__day {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-red);
+  background: var(--color-mid-gray);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.schedule-card__slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.schedule-card__slot:last-child {
+  border-bottom: none;
+}
+
+.schedule-card__slot .time {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-white);
+  min-width: 80px;
+}
+
+.schedule-card__slot .class-name {
+  font-size: var(--text-sm);
+  color: var(--color-gray);
+  text-align: right;
+}
+
+
+/* ==========================
    SCROLL ANIMATIONS
    Elements fade in as they enter the viewport.
    ========================== */

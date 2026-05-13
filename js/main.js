@@ -49,6 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   backdrop.addEventListener('click', closeMenu);
 
+  // Close button (X) inside mobile menu
+  const closeMenuBtn = document.querySelector('.js-close-menu');
+  if (closeMenuBtn) {
+    closeMenuBtn.addEventListener('click', closeMenu);
+  }
+
   navLinks.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', closeMenu);
   });

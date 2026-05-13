@@ -1,0 +1,241 @@
+/* ==========================================================
+   coaches.css — Styles specific to the Meet the Coaches page
+   ========================================================== */
+
+
+/* ==========================
+   PAGE HEADER
+   Sits below the fixed nav with a subtle gradient bg.
+   ========================== */
+.coaches-header {
+  padding-top: calc(var(--nav-height) + var(--space-4xl));
+  padding-bottom: var(--space-3xl);
+  background: linear-gradient(
+    180deg,
+    var(--color-dark) 0%,
+    var(--color-black) 100%
+  );
+}
+
+.coaches-header h1 {
+  margin-bottom: var(--space-md);
+}
+
+.coaches-header__sub {
+  font-size: var(--text-lg);
+  color: var(--color-gray);
+  max-width: 550px;
+}
+
+
+/* ==========================
+   COACHES GRID
+   2-column on desktop, 1-column on mobile.
+   ========================== */
+.coaches__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl);
+}
+
+
+/* ==========================
+   COACH CARD
+   Photo on top, info below. The bio expands
+   with a smooth height animation on toggle.
+   ========================== */
+.coach-card {
+  background: var(--color-dark-gray);
+  border: 1px solid var(--color-mid-gray);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.coach-card:hover {
+  border-color: var(--color-red);
+  transform: translateY(-4px);
+}
+
+/* Image container — crop to a consistent ratio */
+.coach-card__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-mid-gray);
+}
+
+.coach-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Slight darkening at the bottom so the rank badge pops */
+  filter: brightness(0.95);
+  transition: transform var(--transition-med);
+}
+
+.coach-card:hover .coach-card__image {
+  transform: scale(1.03);
+}
+
+/* Belt rank badge overlaid on the photo */
+.coach-card__rank {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  color: var(--color-white);
+}
+
+/* Belt color variants */
+.coach-card__rank--black  { background: rgba(10, 10, 10, 0.85); border: 1px solid var(--color-gray); }
+.coach-card__rank--brown  { background: rgba(139, 90, 43, 0.85); }
+.coach-card__rank--purple { background: rgba(100, 50, 150, 0.85); }
+
+/* Text body below the photo */
+.coach-card__body {
+  padding: var(--space-xl);
+}
+
+.coach-card__name {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-xs);
+}
+
+.coach-card__role {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-red);
+  margin-bottom: var(--space-md);
+}
+
+.coach-card__summary {
+  font-size: var(--text-base);
+  color: var(--color-light-gray);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+
+/* ==========================
+   EXPANDABLE BIO
+   Uses max-height + overflow for a smooth CSS transition.
+   ========================== */
+.coach-card__bio {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+/* When expanded, allow enough room for long bios */
+.coach-card__bio.is-expanded {
+  max-height: 800px;   /* generous ceiling — actual height is less */
+  opacity: 1;
+}
+
+.coach-card__bio p {
+  font-size: var(--text-sm);
+  color: var(--color-light-gray);
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.coach-card__bio p:last-child {
+  margin-bottom: var(--space-md);
+}
+
+
+/* ==========================
+   TOGGLE BUTTON
+   "Read Full Bio" with a chevron that rotates on expand.
+   ========================== */
+.coach-card__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-red);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.coach-card__toggle:hover {
+  color: var(--color-white);
+}
+
+/* Chevron icon rotates 180° when bio is open */
+.coach-card__toggle-icon {
+  transition: transform var(--transition-fast);
+}
+
+.coach-card__toggle.is-active .coach-card__toggle-icon {
+  transform: rotate(180deg);
+}
+
+
+/* ==========================
+   CTA BANNER at the bottom
+   ========================== */
+.coaches-cta {
+  background: var(--color-dark);
+  padding: var(--space-4xl) 0;
+}
+
+
+/* ==========================
+   ACTIVE NAV LINK HIGHLIGHT
+   Red underline on the current page link.
+   ========================== */
+.nav__link--active {
+  color: var(--color-red) !important;
+}
+
+.nav__link--active::after {
+  width: 100% !important;
+}
+
+
+/* ==========================
+   RESPONSIVE — Mobile overrides
+   ========================== */
+@media (max-width: 900px) {
+  .coaches__grid {
+    grid-template-columns: 1fr;
+    max-width: 550px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .coaches-header {
+    padding-top: calc(var(--nav-height) + var(--space-2xl));
+    padding-bottom: var(--space-2xl);
+  }
+
+  .coaches-header h1 {
+    font-size: var(--text-3xl);
+  }
+
+  .coach-card__body {
+    padding: var(--space-lg);
+  }
+
+  .coach-card__name {
+    font-size: var(--text-xl);
+  }
+}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Coaches — True Jiu Jitsu | Hickory, NC</title>
+  <meta name="description" content="Meet the coaches of True Jiu Jitsu in Hickory, NC. Black belts, competitors, and mentors dedicated to the art of Brazilian Jiu-Jitsu.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="img/tjj_favicon.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="css/coaches.css">
+</head>
+
+<body>
+
+
+  <!-- =====================================================
+       NAVIGATION (shared with index.html)
+       ===================================================== -->
+  <nav class="nav nav--scrolled" aria-label="Main navigation">
+    <div class="wrapper nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="img/true_jiu_jitsu_logo_white.webp" alt="True Jiu Jitsu logo">
+      </a>
+
+      <div class="nav__links" role="menu">
+        <button class="nav__close js-close-menu" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <a href="index.html#about"    class="nav__link" role="menuitem">About</a>
+        <a href="index.html#programs" class="nav__link" role="menuitem">Programs</a>
+        <a href="index.html#schedule" class="nav__link" role="menuitem">Schedule</a>
+        <a href="coaches.html"        class="nav__link nav__link--active" role="menuitem">Coaches</a>
+        <a href="index.html#pricing"  class="nav__link" role="menuitem">Pricing</a>
+        <a href="#contact" class="btn btn--primary" role="menuitem">Free Trial</a>
+      </div>
+
+      <button class="nav__hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__backdrop"></div>
+  </nav>
+
+
+  <!-- =====================================================
+       PAGE HEADER
+       ===================================================== -->
+  <header class="coaches-header">
+    <div class="wrapper">
+      <span class="section-label">The Team</span>
+      <h1>Meet the Coaches</h1>
+      <p class="coaches-header__sub">
+        Experienced instructors dedicated to the art — from the fundamentals to the competition stage.
+      </p>
+    </div>
+  </header>
+
+
+  <!-- =====================================================
+       COACHES GRID
+       ===================================================== -->
+  <section class="section coaches">
+    <div class="wrapper">
+      <div class="coaches__grid">
+
+
+        <!-- ========== Coach: Daniel Fredell ========== -->
+        <article class="coach-card fade-in">
+          <div class="coach-card__image-wrap">
+            <img src="img/coach_daniel.jpg" alt="Professor Daniel Fredell" class="coach-card__image">
+            <div class="coach-card__rank coach-card__rank--black">Black Belt</div>
+          </div>
+          <div class="coach-card__body">
+            <h2 class="coach-card__name">Professor Daniel Fredell</h2>
+            <p class="coach-card__role">Head Instructor &middot; BJJ Black Belt</p>
+            <p class="coach-card__summary">
+              With over 15 years in Brazilian Jiu-Jitsu, Coach Daniel brings a holistic
+              approach that integrates fitness, yoga, and body awareness into every class.
+            </p>
+
+            <!-- Expandable bio — hidden until toggled -->
+            <div class="coach-card__bio" id="bio-daniel">
+              <p>
+                Professor Daniel Fredell, affectionately known as "Coach Daniel," was awarded
+                his black belt from Karel "Silver Fox" Pravec in October of 2024.
+              </p>
+              <p>
+                Beyond the mats, Daniel is a Certified Fitness Professional and holds a RYS-200
+                Yoga Certification, allowing him to seamlessly integrate principles of flexibility,
+                balance, and body awareness into his BJJ curriculum. As a published author and avid
+                kettlebell enthusiast, Coach Daniel possesses a deep understanding of human movement
+                and biomechanics, empowering his students with a comprehensive and insightful
+                training experience.
+              </p>
+              <p>
+                His passion lies in fostering not only skilled grapplers but also well-rounded
+                individuals who move with intention and strength.
+              </p>
+            </div>
+
+            <button class="coach-card__toggle js-toggle-bio" aria-expanded="false" aria-controls="bio-daniel">
+              <span class="coach-card__toggle-text">Read Full Bio</span>
+              <svg class="coach-card__toggle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- ========== Coach: JD Smith ========== -->
+        <article class="coach-card fade-in">
+          <div class="coach-card__image-wrap">
+            <img src="img/coach_jd.jpg" alt="Professor JD Smith" class="coach-card__image">
+            <div class="coach-card__rank coach-card__rank--black">Black Belt</div>
+          </div>
+          <div class="coach-card__body">
+            <h2 class="coach-card__name">Professor JD Smith</h2>
+            <p class="coach-card__role">Instructor &middot; BJJ &amp; Luta Livre Black Belt</p>
+            <p class="coach-card__summary">
+              A 20-year Army veteran with over 40 years of grappling experience. IBJJF Pan Am
+              silver medalist and Abu Dhabi Pro U.S. National Champion.
+            </p>
+
+            <div class="coach-card__bio" id="bio-jd">
+              <p>
+                JD grew up in Pennsylvania, where he started wrestling in the fourth grade, building
+                the foundation for a lifelong journey in grappling. After high school he joined the
+                United States Army and served for 20 years while completing both his undergraduate
+                and graduate degrees.
+              </p>
+              <p>
+                During his time in service, he deployed twice to Iraq and once to Egypt, finishing
+                his career as a combat advisor. He also served as a combatives instructor, teaching
+                a system that blends Brazilian Jiu-Jitsu, wrestling, and kickboxing.
+              </p>
+              <p>
+                JD holds a black belt in Brazilian Jiu-Jitsu and a black belt in Luta Livre. His
+                competitive accomplishments include a silver medal at the IBJJF Pan American
+                Championship, Abu Dhabi Jiu-Jitsu Pro Tour U.S. National Champion, and seven-time
+                IBJJF Open gold medalist. He has also taught seminars throughout the United States.
+              </p>
+              <p>
+                His teaching philosophy focuses on strong fundamentals, safety, and helping students
+                of all ages build confidence, discipline, and real-world skills through a structured,
+                system-based approach to training.
+              </p>
+              <p>
+                JD lives in Maiden, North Carolina with his wife, Deanna. They own a farm where they
+                raise sheep and Highland cattle, and they have four adult sons.
+              </p>
+            </div>
+
+            <button class="coach-card__toggle js-toggle-bio" aria-expanded="false" aria-controls="bio-jd">
+              <span class="coach-card__toggle-text">Read Full Bio</span>
+              <svg class="coach-card__toggle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- ========== Coach: Angela Lenz ========== -->
+        <article class="coach-card fade-in">
+          <div class="coach-card__image-wrap">
+            <img src="img/coach_angela.jpg" alt="Coach Angela Lenz" class="coach-card__image">
+            <div class="coach-card__rank coach-card__rank--brown">Brown Belt</div>
+          </div>
+          <div class="coach-card__body">
+            <h2 class="coach-card__name">Coach Angela Lenz</h2>
+            <p class="coach-card__role">Instructor &middot; BJJ Brown Belt</p>
+            <p class="coach-card__summary">
+              Training since 2016, Angela is a personal trainer and full-time firefighter
+              who brings grit, heart, and functional fitness to the mats.
+            </p>
+
+            <div class="coach-card__bio" id="bio-angela">
+              <p>
+                Angela started training Jiu-Jitsu in October 2016 in Lakewood, Colorado at
+                Mile High Gracie Jiu-Jitsu and Nova Mente Jiu-Jitsu in Englewood, Colorado.
+                What began as a personal fitness and self-defense goal quickly grew into a
+                passion for the art and the community of Jiu-Jitsu.
+              </p>
+              <p>
+                Born and raised in California, she spent 17 years in Colorado before moving
+                to North Carolina in 2021. Angela is a personal trainer with the goal of
+                helping people find functional fitness for the life they want.
+              </p>
+              <p>
+                She also proudly serves as a full-time firefighter in Newton and is a mother
+                to two amazing grown children who are both creative, smart, and — as she
+                puts it — annoyingly taller than her.
+              </p>
+            </div>
+
+            <button class="coach-card__toggle js-toggle-bio" aria-expanded="false" aria-controls="bio-angela">
+              <span class="coach-card__toggle-text">Read Full Bio</span>
+              <svg class="coach-card__toggle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- ========== Coach: Jonathan Rink ========== -->
+        <article class="coach-card fade-in">
+          <div class="coach-card__image-wrap">
+            <img src="img/coach_jonathan.jpg" alt="Assistant Coach Jonathan Rink" class="coach-card__image">
+            <div class="coach-card__rank coach-card__rank--purple">Purple Belt</div>
+          </div>
+          <div class="coach-card__body">
+            <h2 class="coach-card__name">Coach Jonathan Rink</h2>
+            <p class="coach-card__role">Assistant Coach &middot; BJJ Purple Belt</p>
+            <p class="coach-card__summary">
+              A Hickory native, Jonathan combines his community-building leadership at
+              Hickory FC with a growing passion for Jiu-Jitsu since 2021.
+            </p>
+
+            <div class="coach-card__bio" id="bio-jonathan">
+              <p>
+                Jonathan was born and raised in Hickory, North Carolina, where he developed a
+                strong connection to his community that continues to shape both his personal
+                and professional life.
+              </p>
+              <p>
+                He began training Brazilian Jiu-Jitsu in May 2021, initially driven by curiosity
+                and a desire to challenge himself with something difficult. Since then, the journey
+                has become a meaningful part of his life.
+              </p>
+              <p>
+                Professionally, Jonathan serves as the VP of Operations for Hickory FC, where he
+                focuses on building a strong, community-driven club both on and off the field.
+              </p>
+              <p>
+                Above all, his most important roles are being a dad and a husband — responsibilities
+                that define him and will always come first.
+              </p>
+            </div>
+
+            <button class="coach-card__toggle js-toggle-bio" aria-expanded="false" aria-controls="bio-jonathan">
+              <span class="coach-card__toggle-text">Read Full Bio</span>
+              <svg class="coach-card__toggle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       CTA BANNER — Drive back to the contact form
+       ===================================================== -->
+  <section class="coaches-cta">
+    <div class="wrapper" style="text-align: center;">
+      <h2>Ready to Train With Us?</h2>
+      <p style="color: var(--color-light-gray); max-width: 500px; margin: var(--space-md) auto var(--space-xl);">
+        Our coaches are here to meet you where you are — beginner or advanced.
+      </p>
+      <button class="btn btn--primary js-open-modal">Start Your Free Trial</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       MODAL — Contact / Lead-Gen Form (same as index.html)
+       ===================================================== -->
+  <div class="modal" id="contact-modal" aria-hidden="true">
+    <div class="modal__backdrop js-close-modal"></div>
+    <div class="modal__dialog" role="dialog" aria-labelledby="modal-title">
+
+      <button class="modal__close js-close-modal" aria-label="Close form">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <h2 id="modal-title" class="modal__title">Claim Your Free Trial Class</h2>
+      <p class="modal__subtitle">No experience needed — just show up.</p>
+
+      <form id="contact-form" class="form" action="#" method="POST">
+        <div id="form-fields">
+
+          <div class="form__group">
+            <label for="name" class="form__label">Name</label>
+            <input type="text" id="name" name="name" class="form__input" placeholder="Your full name" required>
+          </div>
+
+          <div class="form__group">
+            <label for="email" class="form__label">Email</label>
+            <input type="email" id="email" name="email" class="form__input" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form__group">
+            <label for="phone" class="form__label">Phone</label>
+            <input type="tel" id="phone" name="phone" class="form__input" placeholder="(555) 555-5555">
+          </div>
+
+          <div class="form__group">
+            <label for="interest" class="form__label">Interested In</label>
+            <select id="interest" name="interest" class="form__select">
+              <option value="" disabled selected>Select a program</option>
+              <option value="jiu-jitsu">Jiu-Jitsu</option>
+              <option value="striking">Striking</option>
+              <option value="fitness">Personal Fitness</option>
+              <option value="not-sure">Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label for="message" class="form__label">Anything else?</label>
+            <textarea id="message" name="message" class="form__textarea" placeholder="Questions, experience level, goals..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block">Claim My Free Class</button>
+
+        </div>
+
+        <div id="form-success" class="form__success">
+          <h3>You're In!</h3>
+          <p>We'll be in touch soon to get you on the mats. Welcome to True Jiu Jitsu.</p>
+          <p style="margin-top: var(--space-lg); color: var(--color-light-gray);">Want to save time on your first visit?</p>
+          <a href="https://form.jotform.com/260486208287060" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top: var(--space-md);">Fill Out the Waiver Now</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="wrapper">
+      <p class="footer__text">
+        &copy; <span id="copyright-year"></span> True Jiu Jitsu &nbsp;&middot;&nbsp; 735 13th Ave Dr SE, Hickory, NC 28602 &nbsp;&middot;&nbsp;
+        <a href="tel:+18286122695">(828) 612-2695</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/coaches.js"></script>
+
+</body>
+</html>

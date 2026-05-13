@@ -74,6 +74,23 @@
   width: 100%;
 }
 
+/* Close button inside mobile menu — hidden on desktop */
+.nav__close {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  cursor: pointer;
+  padding: var(--space-xs);
+  align-self: flex-end;
+  margin-bottom: var(--space-md);
+  transition: color var(--transition-fast);
+}
+
+.nav__close:hover {
+  color: var(--color-white);
+}
+
 /* Hamburger icon — hidden on desktop, shown on mobile */
 .nav__hamburger {
   display: none;
