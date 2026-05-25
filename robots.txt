@@ -1,0 +1,7 @@
+# robots.txt — Instructs search engine crawlers how to index the site.
+# Update the Sitemap URL once the real domain is confirmed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://truebjj.academy/sitemap.xml

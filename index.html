@@ -6,8 +6,29 @@
   <title>True Jiu Jitsu — Hickory, NC | Jiu Jitsu &amp; Fitness</title>
   <meta name="description" content="True Jiu Jitsu in Hickory, NC. Gi, NoGi, self-defense, striking, and personal fitness classes. Get back to the art. Start training today.">
 
+  <!-- Open Graph — controls how the page appears when shared on social media -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://truebjj.academy/">
+  <meta property="og:title"       content="True Jiu Jitsu — Hickory, NC | Jiu Jitsu &amp; Fitness">
+  <meta property="og:description" content="Gi, NoGi, self-defense, striking, and personal fitness in Hickory, NC. No experience needed — claim your free trial class today.">
+  <meta property="og:image"       content="https://truebjj.academy/img/true_jiu_jitsu_gym.webp">
+  <meta property="og:image:alt"   content="The True Jiu Jitsu training facility in Hickory, NC">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="True Jiu Jitsu — Hickory, NC">
+  <meta name="twitter:description" content="Gi, NoGi, self-defense, striking, and personal fitness in Hickory, NC.">
+  <meta name="twitter:image"       content="https://truebjj.academy/img/true_jiu_jitsu_gym.webp">
+
+  <!-- Canonical URL — tells search engines the preferred version of this page -->
+  <link rel="canonical" href="https://truebjj.academy/">
+
   <!-- Favicon -->
   <link rel="icon" type="image/webp" href="img/tjj_favicon.webp">
+
+  <!-- Preload the hero background image so it starts loading immediately,
+       before the browser parses layout.css and discovers it there. -->
+  <link rel="preload" as="image" href="img/true_jiu_jitsu_gym.webp">
 
   <!-- Google Fonts: Oswald (headings) + Barlow (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +41,59 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Structured Data: LocalBusiness schema for local SEO.
+       Tells Google exactly what this business is, where it is,
+       and how to contact it. Update the domain once confirmed.
+       Verify opening hours match the actual gym schedule. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "True Jiu Jitsu",
+    "description": "Gi and NoGi Brazilian Jiu-Jitsu, striking, and personal fitness classes in Hickory, NC. All levels welcome.",
+    "url": "https://truebjj.academy",
+    "telephone": "+18286122695",
+    "image": "https://truebjj.academy/img/true_jiu_jitsu_gym.webp",
+    "logo": "https://truebjj.academy/img/true_jiu_jitsu_logo.webp",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "735 13th Ave Dr SE",
+      "addressLocality": "Hickory",
+      "addressRegion": "NC",
+      "postalCode": "28602",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Wednesday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Thursday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "sameAs": []
+  }
+  </script>
 </head>
 
 <body>
@@ -46,6 +120,7 @@
         <a href="#schedule" class="nav__link" role="menuitem">Schedule</a>
         <a href="coaches.html"        class="nav__link" role="menuitem">Coaches</a>
         <a href="#pricing"  class="nav__link" role="menuitem">Pricing</a>
+        <a href="https://form.jotform.com/260486208287060" class="nav__link" role="menuitem" target="_blank" rel="noopener">Waiver</a>
         <a href="#contact"  class="btn btn--primary" role="menuitem">Free Trial</a>
       </div>
 
@@ -113,9 +188,9 @@
           <div class="carousel">
             <div class="carousel__track">
               <img src="img/jiu_jitsu_students_1.webp" alt="True Jiu Jitsu students training" class="carousel__slide carousel__slide--active">
-              <img src="img/jiu_jitsu_students_2.webp" alt="True Jiu Jitsu students training" class="carousel__slide">
-              <img src="img/jiu_jitsu_students_3.webp" alt="True Jiu Jitsu students training" class="carousel__slide">
-              <img src="img/jiu_jitsu_students_4.webp" alt="True Jiu Jitsu students training" class="carousel__slide">
+              <img src="img/jiu_jitsu_students_2.webp" alt="True Jiu Jitsu students training" class="carousel__slide" loading="lazy">
+              <img src="img/jiu_jitsu_students_3.webp" alt="True Jiu Jitsu students training" class="carousel__slide" loading="lazy">
+              <img src="img/jiu_jitsu_students_4.webp" alt="True Jiu Jitsu students training" class="carousel__slide" loading="lazy">
             </div>
             <!-- Navigation dots -->
             <div class="carousel__dots">
@@ -350,7 +425,7 @@
         <div class="pricing-card fade-in">
           <p class="pricing-card__name">Starter</p>
           <p class="pricing-card__price">$120<span>/mo</span></p>
-          <p class="pricing-card__detail">2 classes per week</p>
+          <p class="pricing-card__detail">2 days per week</p>
           <ul class="pricing-card__features">
             <li>Gi or NoGi classes</li>
             <li>Fundamentals &amp; all-levels</li>
@@ -491,10 +566,6 @@
       <h2 id="modal-title" class="modal__title">Claim Your Free Trial Class</h2>
       <p class="modal__subtitle">No experience needed — just show up.</p>
 
-      <!--
-        ACTION: Replace the form action URL with your real endpoint
-        (Formspree, Netlify Forms, custom backend, etc.)
-      -->
       <form id="contact-form" class="form" action="#" method="POST">
         <div id="form-fields">
 
@@ -560,6 +631,7 @@
 
 
   <!-- Main script -->
+  <script src="js/analytics.js"></script>
   <script src="js/main.js"></script>
 
 </body>

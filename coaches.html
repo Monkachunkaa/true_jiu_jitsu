@@ -6,6 +6,23 @@
   <title>Meet the Coaches — True Jiu Jitsu | Hickory, NC</title>
   <meta name="description" content="Meet the coaches of True Jiu Jitsu in Hickory, NC. Black belts, competitors, and mentors dedicated to the art of Brazilian Jiu-Jitsu.">
 
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://truebjj.academy/coaches.html">
+  <meta property="og:title"       content="Meet the Coaches — True Jiu Jitsu | Hickory, NC">
+  <meta property="og:description" content="Black belts, competitors, and mentors dedicated to the art. Meet the coaching staff at True Jiu Jitsu in Hickory, NC.">
+  <meta property="og:image"       content="https://truebjj.academy/img/true_jiu_jitsu_gym.webp">
+  <meta property="og:image:alt"   content="The True Jiu Jitsu coaching staff">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Meet the Coaches — True Jiu Jitsu">
+  <meta name="twitter:description" content="Black belts, competitors, and mentors at True Jiu Jitsu in Hickory, NC.">
+  <meta name="twitter:image"       content="https://truebjj.academy/img/true_jiu_jitsu_gym.webp">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://truebjj.academy/coaches.html">
+
   <!-- Favicon -->
   <link rel="icon" type="image/webp" href="img/tjj_favicon.webp">
 
@@ -23,6 +40,31 @@
 
   <!-- Page-specific styles -->
   <link rel="stylesheet" href="css/coaches.css">
+
+  <!-- Structured Data: same LocalBusiness schema as index.html.
+       Consistent schema across pages reinforces the business identity. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "True Jiu Jitsu",
+    "description": "Gi and NoGi Brazilian Jiu-Jitsu, striking, and personal fitness classes in Hickory, NC. All levels welcome.",
+    "url": "https://truebjj.academy",
+    "telephone": "+18286122695",
+    "image": "https://truebjj.academy/img/true_jiu_jitsu_gym.webp",
+    "logo": "https://truebjj.academy/img/true_jiu_jitsu_logo.webp",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "735 13th Ave Dr SE",
+      "addressLocality": "Hickory",
+      "addressRegion": "NC",
+      "postalCode": "28602",
+      "addressCountry": "US"
+    },
+    "sameAs": []
+  }
+  </script>
 </head>
 
 <body>
@@ -46,6 +88,7 @@
         <a href="index.html#schedule" class="nav__link" role="menuitem">Schedule</a>
         <a href="coaches.html"        class="nav__link nav__link--active" role="menuitem">Coaches</a>
         <a href="index.html#pricing"  class="nav__link" role="menuitem">Pricing</a>
+        <a href="https://form.jotform.com/260486208287060" class="nav__link" role="menuitem" target="_blank" rel="noopener">Waiver</a>
         <a href="#contact" class="btn btn--primary" role="menuitem">Free Trial</a>
       </div>
 
@@ -84,7 +127,7 @@
         <!-- ========== Coach: Daniel Fredell ========== -->
         <article class="coach-card fade-in">
           <div class="coach-card__image-wrap">
-            <img src="img/coach_daniel.jpg" alt="Professor Daniel Fredell" class="coach-card__image">
+            <img src="img/coach_daniel.jpg" alt="Professor Daniel Fredell" class="coach-card__image" loading="lazy">
             <div class="coach-card__rank coach-card__rank--black">Black Belt</div>
           </div>
           <div class="coach-card__body">
@@ -126,7 +169,7 @@
         <!-- ========== Coach: JD Smith ========== -->
         <article class="coach-card fade-in">
           <div class="coach-card__image-wrap">
-            <img src="img/coach_jd.jpg" alt="Professor JD Smith" class="coach-card__image">
+            <img src="img/coach_jd.jpg" alt="Professor JD Smith" class="coach-card__image" loading="lazy">
             <div class="coach-card__rank coach-card__rank--black">Black Belt</div>
           </div>
           <div class="coach-card__body">
@@ -177,7 +220,7 @@
         <!-- ========== Coach: Angela Lenz ========== -->
         <article class="coach-card fade-in">
           <div class="coach-card__image-wrap">
-            <img src="img/coach_angela.jpg" alt="Coach Angela Lenz" class="coach-card__image">
+            <img src="img/coach_angela.jpg" alt="Coach Angela Lenz" class="coach-card__image" loading="lazy">
             <div class="coach-card__rank coach-card__rank--brown">Brown Belt</div>
           </div>
           <div class="coach-card__body">
@@ -218,7 +261,7 @@
         <!-- ========== Coach: Jonathan Rink ========== -->
         <article class="coach-card fade-in">
           <div class="coach-card__image-wrap">
-            <img src="img/coach_jonathan.jpg" alt="Assistant Coach Jonathan Rink" class="coach-card__image">
+            <img src="img/coach_jonathan.jpg" alt="Assistant Coach Jonathan Rink" class="coach-card__image" loading="lazy">
             <div class="coach-card__rank coach-card__rank--purple">Purple Belt</div>
           </div>
           <div class="coach-card__body">
@@ -355,6 +398,7 @@
 
 
   <!-- Scripts -->
+  <script src="js/analytics.js"></script>
   <script src="js/main.js"></script>
   <script src="js/coaches.js"></script>
 

@@ -1,0 +1,14 @@
+{
+  "name": "true-jiu-jitsu",
+  "version": "1.0.0",
+  "description": "True Jiu Jitsu website with Netlify Functions + AWS SES",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1490.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

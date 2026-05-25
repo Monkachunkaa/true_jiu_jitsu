@@ -1,0 +1,12 @@
+# ==========================================================
+# .gitignore — Files that should never be committed to git
+# ==========================================================
+
+# Local environment variables — contains real AWS credentials
+.env
+
+# Netlify CLI local state
+.netlify/
+
+# Node dependencies — installed fresh on each deploy
+node_modules/

@@ -188,10 +188,42 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------------
      7. CONTACT FORMS — Handle submission for both the
      modal form and the inline form at the bottom.
-     Both use the same endpoint; each has its own success state.
+     Both POST JSON to the AWS Lambda Function URL.
+     Each form has its own success/fields div pair.
      ------------------------------------------------------- */
 
-  /** Wire up a form: on submit, POST data then swap to success message */
+  /* Netlify function endpoint — no changes needed here */
+  const LAMBDA_URL = '/.netlify/functions/send-contact-email';
+
+  /** Collect the named inputs of a form into a plain object */
+  function serializeForm(form) {
+    const data = {};
+    new FormData(form).forEach((value, key) => {
+      data[key] = value;
+    });
+    return data;
+  }
+
+  /**
+   * Hide the form fields and show the success message.
+   * Also dispatches a custom event so analytics.js can
+   * track the conversion without being coupled to this file.
+   */
+  function showFormSuccess(fields, success, formId) {
+    fields.style.display = 'none';
+    success.classList.add('is-visible');
+
+    // Notify analytics.js that a form was successfully submitted
+    document.dispatchEvent(new CustomEvent('tjj:formSuccess', {
+      detail: { formId }
+    }));
+  }
+
+  /**
+   * Wire up a form: on submit, POST JSON to Lambda,
+   * then swap to the success message regardless of the
+   * response (so a network hiccup doesn't leave the user stuck).
+   */
   function initForm(formId, fieldsId, successId) {
     const form    = document.getElementById(formId);
     const fields  = document.getElementById(fieldsId);
@@ -201,30 +233,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(form);
+
+      // Collect form values as JSON
+      const payload = serializeForm(form);
+
+      // Show a loading state so the user knows something is happening
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
 
       try {
-        /* Replace this URL with your real form endpoint */
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+        await fetch(LAMBDA_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
         });
-
-        if (response.ok) {
-          showFormSuccess(fields, success);
-        } else {
-          showFormSuccess(fields, success); // demo fallback
-        }
-      } catch {
-        showFormSuccess(fields, success); // demo fallback
+      } catch (err) {
+        // Log fetch errors but don't block the success state —
+        // the user experience matters more than a silent network failure.
+        console.error('Form submission error:', err);
       }
-    });
-  }
 
-  function showFormSuccess(fields, success) {
-    fields.style.display = 'none';
-    success.classList.add('is-visible');
+      // Restore the button in case something goes wrong before success shows
+      submitBtn.textContent = originalBtnText;
+      submitBtn.disabled = false;
+
+      // Always show success so the user isn't left hanging
+      showFormSuccess(fields, success, formId);
+    });
   }
 
   // Initialize both forms

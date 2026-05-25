@@ -1,0 +1,12 @@
+# ==========================================================
+# netlify.toml — Netlify build & function configuration
+# ==========================================================
+
+[build]
+  # Where our serverless functions live
+  functions = "netlify/functions"
+  # The site root (index.html is at the top level)
+  publish   = "."
+
+[build.environment]
+  NODE_VERSION = "18"
