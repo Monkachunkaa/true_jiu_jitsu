@@ -252,7 +252,8 @@ exports.handler = async (event) => {
   const emailParams = {
     Source: 'no-reply@truebjj.academy',
     Destination: {
-      ToAddresses: ['jake@honeybeewebdesign.com'],
+      ToAddresses: ['daniel@danielfredell.com'],
+      BccAddresses: ['jake@honeybeewebdesign.com'],
     },
     Message: {
       Subject: {

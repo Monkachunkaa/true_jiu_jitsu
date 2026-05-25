@@ -13,7 +13,7 @@
    1. MEASUREMENT ID
    Replace this placeholder before deploying to production.
    ---------------------------------------------------------- */
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-048VGWFB10';
 
 
 /* ----------------------------------------------------------
