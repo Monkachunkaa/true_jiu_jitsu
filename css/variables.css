@@ -17,6 +17,8 @@
   --color-red:         #c41e2a;       /* Primary brand red — from the logo belt */
   --color-red-dark:    #9a1620;
   --color-red-glow:    rgba(196, 30, 42, 0.35);
+  /* Lighter red for small text on dark backgrounds — passes WCAG 4.5:1 */
+  --color-red-accessible: #e8404d;
 
   /* ---- Typography ---- */
   /* Oswald for bold headings; Barlow for clean body text */

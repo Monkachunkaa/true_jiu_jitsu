@@ -344,3 +344,15 @@
   font-size: var(--text-sm);
   color: var(--color-gray);
 }
+
+/* Footer links need sufficient contrast and a non-color indicator
+   (underline) to pass WCAG — the base anchor red (#c41e2a) fails both. */
+.footer__text a {
+  color: var(--color-light-gray);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__text a:hover {
+  color: var(--color-white);
+}
