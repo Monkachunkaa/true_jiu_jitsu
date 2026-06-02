@@ -250,7 +250,7 @@ exports.handler = async (event) => {
 
   // Build the SES email parameters
   const emailParams = {
-    Source: 'no-reply@truebjj.academy',
+    Source: 'True Jiu Jitsu <no-reply@truebjj.academy>',
     Destination: {
       ToAddresses: ['daniel@danielfredell.com'],
       BccAddresses: ['jake@honeybeewebdesign.com'],
