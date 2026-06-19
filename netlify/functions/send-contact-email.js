@@ -12,7 +12,6 @@
    ========================================================== */
 
 const AWS = require('aws-sdk');
-const { createClient } = require('@supabase/supabase-js');
 
 /* ----------------------------------------------------------
    AWS SES client
@@ -27,11 +26,26 @@ const ses = new AWS.SES({
    Supabase client — writes lead records to the online site's
    database so they appear in the leads pipeline dashboard.
    Uses the service role key so it can write without auth.
+
+   NOTE: Initialized lazily inside the handler (not at module
+   load time) so that missing env vars don't crash the function
+   on startup and break form submissions entirely.
    ---------------------------------------------------------- */
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+const { createClient } = require('@supabase/supabase-js');
+
+function getSupabaseClient() {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  // If either variable is missing, return null.
+  // The handler will skip the Supabase insert but still send the email.
+  if (!url || !key) {
+    console.warn('Supabase env vars not set — lead will not be recorded in database.');
+    return null;
+  }
+
+  return createClient(url, key);
+}
 
 /* ----------------------------------------------------------
    CORS headers — returned on every response so the browser
@@ -288,18 +302,21 @@ exports.handler = async (event) => {
        appears in the admin leads pipeline dashboard.
        Non-fatal — a Supabase failure doesn't affect the user.
        ---------------------------------------------------------- */
-    try {
-      await supabase.from('leads').insert({
-        name:     fields.name,
-        email:    raw.email?.trim().toLowerCase() || null,
-        phone:    fields.phone !== 'Not provided' ? fields.phone : null,
-        interest: fields.interest !== 'Not provided' ? fields.interest : null,
-        message:  fields.message !== '(no message)' ? fields.message : null,
-        source:   'contact_form',
-        stage:    'new',
-      });
-    } catch (supabaseErr) {
-      console.error('Supabase lead insert failed:', supabaseErr);
+    const supabase = getSupabaseClient();
+    if (supabase) {
+      try {
+        await supabase.from('leads').insert({
+          name:     fields.name,
+          email:    raw.email?.trim().toLowerCase() || null,
+          phone:    fields.phone !== 'Not provided' ? fields.phone : null,
+          interest: fields.interest !== 'Not provided' ? fields.interest : null,
+          message:  fields.message !== '(no message)' ? fields.message : null,
+          source:   'contact_form',
+          stage:    'new',
+        });
+      } catch (supabaseErr) {
+        console.error('Supabase lead insert failed:', supabaseErr);
+      }
     }
 
     return respond(200, { success: true, messageId: result.MessageId });
