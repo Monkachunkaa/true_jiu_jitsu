@@ -12,16 +12,26 @@
    ========================================================== */
 
 const AWS = require('aws-sdk');
+const { createClient } = require('@supabase/supabase-js');
 
 /* ----------------------------------------------------------
-   AWS SES client — credentials come from environment variables,
-   never hardcoded in source.
+   AWS SES client
    ---------------------------------------------------------- */
 const ses = new AWS.SES({
   accessKeyId:     process.env.TJJ_AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.TJJ_AWS_SECRET_ACCESS_KEY,
   region:          process.env.TJJ_AWS_REGION || 'us-east-1',
 });
+
+/* ----------------------------------------------------------
+   Supabase client — writes lead records to the online site's
+   database so they appear in the leads pipeline dashboard.
+   Uses the service role key so it can write without auth.
+   ---------------------------------------------------------- */
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
 
 /* ----------------------------------------------------------
    CORS headers — returned on every response so the browser
@@ -272,9 +282,28 @@ exports.handler = async (event) => {
 
   try {
     const result = await ses.sendEmail(emailParams).promise();
+
+    /* ----------------------------------------------------------
+       Write a lead record to Supabase so this submission
+       appears in the admin leads pipeline dashboard.
+       Non-fatal — a Supabase failure doesn't affect the user.
+       ---------------------------------------------------------- */
+    try {
+      await supabase.from('leads').insert({
+        name:     fields.name,
+        email:    raw.email?.trim().toLowerCase() || null,
+        phone:    fields.phone !== 'Not provided' ? fields.phone : null,
+        interest: fields.interest !== 'Not provided' ? fields.interest : null,
+        message:  fields.message !== '(no message)' ? fields.message : null,
+        source:   'contact_form',
+        stage:    'new',
+      });
+    } catch (supabaseErr) {
+      console.error('Supabase lead insert failed:', supabaseErr);
+    }
+
     return respond(200, { success: true, messageId: result.MessageId });
   } catch (err) {
-    // Logged to Netlify's function log for debugging
     console.error('SES send failed:', err);
     return respond(500, { error: 'Failed to send email' });
   }

@@ -81,7 +81,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -------------------------------------------------------
-     4. IMAGE CAROUSEL — Crossfade through student photos
+     4. SCHEDULE TOGGLE — Switch between Adults / Kids panels.
+     Clicking a toggle button:
+       1. Marks that button as active (red pill).
+       2. Shows the matching .schedule__panel.
+       3. Hides all other panels.
+     The data-panel attribute on each button matches the
+     id "schedule-panel-{value}" in the HTML.
+     ------------------------------------------------------- */
+  const toggleBtns = document.querySelectorAll('.schedule-toggle__btn');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetPanelId = 'schedule-panel-' + btn.dataset.panel;
+
+      // Update button active states
+      toggleBtns.forEach(b => b.classList.remove('schedule-toggle__btn--active'));
+      btn.classList.add('schedule-toggle__btn--active');
+
+      // Show the matching panel, hide all others
+      document.querySelectorAll('.schedule__panel').forEach(panel => {
+        panel.classList.toggle('schedule__panel--active', panel.id === targetPanelId);
+      });
+    });
+  });
+
+
+  /* -------------------------------------------------------
+     5. IMAGE CAROUSEL — Crossfade through student photos
      ------------------------------------------------------- */
   const carousel = document.querySelector('.carousel');
 
@@ -117,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -------------------------------------------------------
-     5. MODAL — Open / close the contact form modal.
+     6. MODAL — Open / close the contact form modal.
      Any link with href="#contact", or any element with
      .js-open-modal, will open the modal. Clicking the
      backdrop, the X button, or pressing Escape closes it.
@@ -172,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -------------------------------------------------------
-     6. OTHER ANCHOR LINKS — Smooth scroll for non-CTA links
+     7. OTHER ANCHOR LINKS — Smooth scroll for non-CTA links
      ------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]:not([href="#contact"])').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -186,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -------------------------------------------------------
-     7. CONTACT FORMS — Handle submission for both the
+     8. CONTACT FORMS — Handle submission for both the
      modal form and the inline form at the bottom.
      Both POST JSON to the AWS Lambda Function URL.
      Each form has its own success/fields div pair.
@@ -270,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -------------------------------------------------------
-     8. COPYRIGHT YEAR — Always shows the current year
+     9. COPYRIGHT YEAR — Always shows the current year
      ------------------------------------------------------- */
   const yearSpan = document.getElementById('copyright-year');
   if (yearSpan) {

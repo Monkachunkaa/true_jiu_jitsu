@@ -598,6 +598,111 @@
 
 
 /* ==========================
+   SCHEDULE TOGGLE
+   Pill-style button group that switches between
+   the Adults and Kids schedule panels.
+   ========================== */
+
+/* The pill container — sits between the heading and the panels.
+   margin: 0 auto centers it horizontally since width is fit-content. */
+.schedule-toggle {
+  display: flex;
+  gap: 0;
+  margin: 0 auto var(--space-2xl);
+  background: var(--color-dark-gray);
+  border: 1px solid var(--color-mid-gray);
+  border-radius: 999px;
+  padding: 4px;
+  width: fit-content;
+}
+
+/* Each pill button */
+.schedule-toggle__btn {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.55rem 1.75rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-gray);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+/* Active pill — filled red */
+.schedule-toggle__btn--active {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+
+/* ==========================
+   SCHEDULE PANELS
+   Each panel holds one full schedule (adults or kids).
+   Only the active panel is visible; inactive panels
+   are hidden via opacity + height so there's no flash.
+   ========================== */
+
+/* Hidden state — panel is collapsed and invisible */
+.schedule__panel {
+  display: none;
+}
+
+/* Active state — panel is fully visible */
+.schedule__panel--active {
+  display: block;
+}
+
+
+/* ==========================
+   KIDS TABLE OVERRIDES
+   The kids table only has 2 columns, so cap its width.
+   Header color swaps from red → blue to signal kids content.
+   ========================== */
+.schedule-table--kids {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.schedule-table--kids thead th {
+  color: #4a9edd; /* blue accent — distinct from adults red */
+}
+
+/* class-note: the rolling/no-rolling label under class name */
+.schedule-table .class-note,
+.schedule-card__slot .class-note {
+  display: block;
+  font-size: var(--text-xs);
+  color: #4a9edd;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Kids mobile cards: blue day header instead of red */
+.schedule-card--kids .schedule-card__day {
+  color: #4a9edd;
+}
+
+/* Kids slots have 3 lines (time, name, note), so let them wrap */
+.schedule-card--kids .schedule-card__slot {
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.schedule-card--kids .schedule-card__slot .class-name,
+.schedule-card--kids .schedule-card__slot .class-note {
+  flex-basis: 100%;
+  text-align: left;
+}
+
+
+/* ==========================
    SCROLL ANIMATIONS
    Elements fade in as they enter the viewport.
    ========================== */

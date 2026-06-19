@@ -273,126 +273,220 @@
       <span class="section-label">Class Times</span>
       <h2 class="section-title">Weekly Schedule</h2>
 
-      <!-- Desktop: table layout (hidden on mobile) -->
-      <div class="schedule__table-wrap fade-in">
-        <table class="schedule-table">
-          <thead>
-            <tr>
-              <th>Monday / Wednesday</th>
-              <th>Tuesday / Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Row 1: Morning -->
-            <tr>
-              <td>
-                <span class="time">9:00 AM</span>
-                <span class="class-name">Gi All Levels</span>
-              </td>
-              <td>
-                <span class="time">9:00 AM</span>
-                <span class="class-name">NoGi All Levels</span>
-              </td>
-              <td>
-                <span class="time">10:00 AM</span>
-                <span class="class-name">Gi All Levels</span>
-              </td>
-              <td>
-                <span class="time">9:00 AM</span>
-                <span class="class-name">Adults Fundamentals NoGi</span>
-              </td>
-            </tr>
-            <!-- Row 2: 4:30 PM -->
-            <tr>
-              <td>
-                <span class="time">4:30 PM</span>
-                <span class="class-name">Adults Gi Fundamentals</span>
-              </td>
-              <td>
-                <span class="time">4:30 PM</span>
-                <span class="class-name">Adults Fundamentals NoGi</span>
-              </td>
-              <td>
-                <span class="time">4:30 PM</span>
-                <span class="class-name">Adults Gi Fundamentals</span>
-              </td>
-              <td>
-                <span class="time">11:00 AM</span>
-                <span class="class-name">Adults Advanced NoGi</span>
-              </td>
-            </tr>
-            <!-- Row 3: 5:30 PM -->
-            <tr>
-              <td>
-                <span class="time">5:30 PM</span>
-                <span class="class-name">Adults Gi Advanced</span>
-              </td>
-              <td>
-                <span class="time">5:30 PM</span>
-                <span class="class-name">Adults Advanced NoGi</span>
-              </td>
-              <td>
-                <span class="time">5:30 PM</span>
-                <span class="class-name">Adults Gi Advanced</span>
-              </td>
-              <td></td>
-            </tr>
-            <!-- Row 4: 6:30 PM -->
-            <tr>
-              <td>
-                <span class="time">6:30 PM</span>
-                <span class="class-name">Adults Gi Advanced</span>
-              </td>
-              <td>
-                <span class="time">6:30 PM</span>
-                <span class="class-name">Adults Advanced NoGi</span>
-              </td>
-              <td>
-                <span class="time">6:30 PM</span>
-                <span class="class-name">Adults Gi Advanced</span>
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Toggle: switches between Adults and Kids panels.
+           JS in main.js drives the active state. -->
+      <div class="schedule-toggle" role="group" aria-label="Schedule type">
+        <button class="schedule-toggle__btn schedule-toggle__btn--active" data-panel="adults">
+          Adults
+        </button>
+        <button class="schedule-toggle__btn" data-panel="kids">
+          Kids
+        </button>
       </div>
 
-      <!-- Mobile: stacked day cards (hidden on desktop) -->
-      <div class="schedule__cards fade-in">
 
-        <div class="schedule-card">
-          <h3 class="schedule-card__day">Monday / Wednesday</h3>
-          <div class="schedule-card__slot"><span class="time">9:00 AM</span><span class="class-name">Gi All Levels</span></div>
-          <div class="schedule-card__slot"><span class="time">4:30 PM</span><span class="class-name">Adults Gi Fundamentals</span></div>
-          <div class="schedule-card__slot"><span class="time">5:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
-          <div class="schedule-card__slot"><span class="time">6:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
+      <!-- ── ADULTS PANEL ──────────────────────────────────── -->
+      <div class="schedule__panel schedule__panel--active" id="schedule-panel-adults">
+
+        <!-- Desktop: table layout (hidden on mobile) -->
+        <div class="schedule__table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Monday / Wednesday</th>
+                <th>Tuesday / Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1: Morning -->
+              <tr>
+                <td>
+                  <span class="time">9:00 AM</span>
+                  <span class="class-name">Gi All Levels</span>
+                </td>
+                <td>
+                  <span class="time">9:00 AM</span>
+                  <span class="class-name">NoGi All Levels</span>
+                </td>
+                <td>
+                  <span class="time">10:00 AM</span>
+                  <span class="class-name">Gi All Levels</span>
+                </td>
+                <td>
+                  <span class="time">9:00 AM</span>
+                  <span class="class-name">Adults Fundamentals NoGi</span>
+                </td>
+              </tr>
+              <!-- Row 2: 4:30 PM -->
+              <tr>
+                <td>
+                  <span class="time">4:30 PM</span>
+                  <span class="class-name">Adults Gi Fundamentals</span>
+                </td>
+                <td>
+                  <span class="time">4:30 PM</span>
+                  <span class="class-name">Adults Fundamentals NoGi</span>
+                </td>
+                <td>
+                  <span class="time">4:30 PM</span>
+                  <span class="class-name">Adults Gi Fundamentals</span>
+                </td>
+                <td>
+                  <span class="time">11:00 AM</span>
+                  <span class="class-name">Adults Advanced NoGi</span>
+                </td>
+              </tr>
+              <!-- Row 3: 5:30 PM -->
+              <tr>
+                <td>
+                  <span class="time">5:30 PM</span>
+                  <span class="class-name">Adults Gi Advanced</span>
+                </td>
+                <td>
+                  <span class="time">5:30 PM</span>
+                  <span class="class-name">Adults Advanced NoGi</span>
+                </td>
+                <td>
+                  <span class="time">5:30 PM</span>
+                  <span class="class-name">Adults Gi Advanced</span>
+                </td>
+                <td></td>
+              </tr>
+              <!-- Row 4: 6:30 PM -->
+              <tr>
+                <td>
+                  <span class="time">6:30 PM</span>
+                  <span class="class-name">Adults Gi Advanced</span>
+                </td>
+                <td>
+                  <span class="time">6:30 PM</span>
+                  <span class="class-name">Adults Advanced NoGi</span>
+                </td>
+                <td>
+                  <span class="time">6:30 PM</span>
+                  <span class="class-name">Adults Gi Advanced</span>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="schedule-card">
-          <h3 class="schedule-card__day">Tuesday / Thursday</h3>
-          <div class="schedule-card__slot"><span class="time">9:00 AM</span><span class="class-name">NoGi All Levels</span></div>
-          <div class="schedule-card__slot"><span class="time">4:30 PM</span><span class="class-name">Adults Fundamentals NoGi</span></div>
-          <div class="schedule-card__slot"><span class="time">5:30 PM</span><span class="class-name">Adults Advanced NoGi</span></div>
-          <div class="schedule-card__slot"><span class="time">6:30 PM</span><span class="class-name">Adults Advanced NoGi</span></div>
+        <!-- Mobile: stacked adult day cards (hidden on desktop) -->
+        <div class="schedule__cards">
+
+          <div class="schedule-card">
+            <h3 class="schedule-card__day">Monday / Wednesday</h3>
+            <div class="schedule-card__slot"><span class="time">9:00 AM</span><span class="class-name">Gi All Levels</span></div>
+            <div class="schedule-card__slot"><span class="time">4:30 PM</span><span class="class-name">Adults Gi Fundamentals</span></div>
+            <div class="schedule-card__slot"><span class="time">5:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
+            <div class="schedule-card__slot"><span class="time">6:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
+          </div>
+
+          <div class="schedule-card">
+            <h3 class="schedule-card__day">Tuesday / Thursday</h3>
+            <div class="schedule-card__slot"><span class="time">9:00 AM</span><span class="class-name">NoGi All Levels</span></div>
+            <div class="schedule-card__slot"><span class="time">4:30 PM</span><span class="class-name">Adults Fundamentals NoGi</span></div>
+            <div class="schedule-card__slot"><span class="time">5:30 PM</span><span class="class-name">Adults Advanced NoGi</span></div>
+            <div class="schedule-card__slot"><span class="time">6:30 PM</span><span class="class-name">Adults Advanced NoGi</span></div>
+          </div>
+
+          <div class="schedule-card">
+            <h3 class="schedule-card__day">Friday</h3>
+            <div class="schedule-card__slot"><span class="time">10:00 AM</span><span class="class-name">Gi All Levels</span></div>
+            <div class="schedule-card__slot"><span class="time">4:30 PM</span><span class="class-name">Adults Gi Fundamentals</span></div>
+            <div class="schedule-card__slot"><span class="time">5:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
+            <div class="schedule-card__slot"><span class="time">6:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
+          </div>
+
+          <div class="schedule-card">
+            <h3 class="schedule-card__day">Saturday</h3>
+            <div class="schedule-card__slot"><span class="time">9:00 AM</span><span class="class-name">Adults Fundamentals NoGi</span></div>
+            <div class="schedule-card__slot"><span class="time">11:00 AM</span><span class="class-name">Adults Advanced NoGi</span></div>
+          </div>
+
+        </div>
+      </div><!-- /#schedule-panel-adults -->
+
+
+      <!-- ── KIDS PANEL ────────────────────────────────────── -->
+      <!--
+        Kids' classes run Mon/Thu and Saturday only.
+        Age groups:
+          Ages 4–8   → No Rolling
+          Ages 9–12  → Rolling
+          All Ages   → Rolling (Saturday)
+      -->
+      <div class="schedule__panel" id="schedule-panel-kids">
+
+        <!-- Desktop: kids table (hidden on mobile) -->
+        <div class="schedule__table-wrap">
+          <table class="schedule-table schedule-table--kids">
+            <thead>
+              <tr>
+                <th>Monday / Thursday</th>
+                <th>Saturday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1: Ages 4-8 / All Ages -->
+              <tr>
+                <td>
+                  <span class="time">4:00 – 4:30 PM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 4–8)</em></span>
+                  <span class="class-note">No Rolling</span>
+                </td>
+                <td>
+                  <span class="time">10:00 – 11:00 AM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(All Ages)</em></span>
+                  <span class="class-note">Rolling</span>
+                </td>
+              </tr>
+              <!-- Row 2: Ages 9-12 / empty Saturday -->
+              <tr>
+                <td>
+                  <span class="time">5:30 – 6:30 PM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 9–12)</em></span>
+                  <span class="class-note">Rolling</span>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="schedule-card">
-          <h3 class="schedule-card__day">Friday</h3>
-          <div class="schedule-card__slot"><span class="time">10:00 AM</span><span class="class-name">Gi All Levels</span></div>
-          <div class="schedule-card__slot"><span class="time">4:30 PM</span><span class="class-name">Adults Gi Fundamentals</span></div>
-          <div class="schedule-card__slot"><span class="time">5:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
-          <div class="schedule-card__slot"><span class="time">6:30 PM</span><span class="class-name">Adults Gi Advanced</span></div>
-        </div>
+        <!-- Mobile: stacked kids day cards (hidden on desktop) -->
+        <div class="schedule__cards">
 
-        <div class="schedule-card">
-          <h3 class="schedule-card__day">Saturday</h3>
-          <div class="schedule-card__slot"><span class="time">9:00 AM</span><span class="class-name">Adults Fundamentals NoGi</span></div>
-          <div class="schedule-card__slot"><span class="time">11:00 AM</span><span class="class-name">Adults Advanced NoGi</span></div>
-        </div>
+          <div class="schedule-card schedule-card--kids">
+            <h3 class="schedule-card__day">Monday / Thursday</h3>
+            <div class="schedule-card__slot">
+              <span class="time">4:00 – 4:30 PM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 4–8)</em></span>
+              <span class="class-note">No Rolling</span>
+            </div>
+            <div class="schedule-card__slot">
+              <span class="time">5:30 – 6:30 PM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 9–12)</em></span>
+              <span class="class-note">Rolling</span>
+            </div>
+          </div>
 
-      </div>
+          <div class="schedule-card schedule-card--kids">
+            <h3 class="schedule-card__day">Saturday</h3>
+            <div class="schedule-card__slot">
+              <span class="time">10:00 – 11:00 AM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(All Ages)</em></span>
+              <span class="class-note">Rolling</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /#schedule-panel-kids -->
+
+
     </div>
   </section>
 
