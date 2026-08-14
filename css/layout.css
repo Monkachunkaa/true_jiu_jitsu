@@ -249,7 +249,7 @@
 
 /* ==========================
    PRICING
-   Two pricing cards side by side.
+   Three pricing cards side by side (Unlimited, Starter, Kids).
    ========================== */
 .pricing {
   background: var(--color-black);
@@ -257,10 +257,10 @@
 
 .pricing__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
   margin-top: var(--space-2xl);
-  max-width: 800px;
+  max-width: 1100px;
   margin-inline: auto;
 }
 

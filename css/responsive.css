@@ -19,10 +19,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Pricing cards stack */
+  /* Pricing: 2 cols on tablet (3 is too cramped) */
   .pricing__grid {
-    grid-template-columns: 1fr;
-    max-width: 450px;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
     margin-inline: auto;
   }
 
@@ -84,6 +84,12 @@
   /* Programs: single column on phone */
   .programs__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Pricing cards stack on phone */
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
   }
 
   /* Smaller hero */

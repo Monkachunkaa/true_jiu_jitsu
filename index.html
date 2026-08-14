@@ -424,7 +424,11 @@
 
       <!-- =====================================================
            KIDS PANEL
-           Classes run Monday, Thursday, and Saturday.
+           Morning classes run Monday, Wednesday, Friday, and Saturday.
+           Evening class runs Monday and Thursday.
+           All kids classes are ages 5+ and include rolling.
+           Laid out day-by-day (same column structure as the
+           adults table) so no day is listed twice.
            ===================================================== -->
       <div class="schedule__panel" id="schedule-panel-kids">
 
@@ -433,29 +437,49 @@
           <table class="schedule-table schedule-table--kids">
             <thead>
               <tr>
-                <th>Monday / Thursday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
                 <th>Saturday</th>
               </tr>
             </thead>
             <tbody>
+              <!-- Morning classes — Mon / Wed / Fri / Sat -->
               <tr>
                 <td>
-                  <span class="time">4:00 – 4:30 PM</span>
-                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 4–8)</em></span>
-                  <span class="class-note">No Rolling</span>
+                  <span class="time">10:00 – 11:00 AM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
+                </td>
+                <td><!-- Tuesday: no kids classes --></td>
+                <td>
+                  <span class="time">10:00 – 11:00 AM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
+                </td>
+                <td><!-- Thursday: no morning kids class --></td>
+                <td>
+                  <span class="time">10:00 – 11:00 AM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
                 </td>
                 <td>
                   <span class="time">10:00 – 11:00 AM</span>
-                  <span class="class-name">Kids Jiu Jitsu <em>(All Ages)</em></span>
-                  <span class="class-note">Rolling</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
                 </td>
               </tr>
+              <!-- Evening — Mon / Thu -->
               <tr>
                 <td>
                   <span class="time">5:30 – 6:30 PM</span>
-                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 9–12)</em></span>
-                  <span class="class-note">Rolling</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
                 </td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="time">5:30 – 6:30 PM</span>
+                  <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
+                </td>
+                <td></td>
                 <td></td>
               </tr>
             </tbody>
@@ -466,16 +490,38 @@
         <div class="schedule__cards">
 
           <div class="schedule-card schedule-card--kids">
-            <h3 class="schedule-card__day">Monday / Thursday</h3>
+            <h3 class="schedule-card__day">Monday</h3>
             <div class="schedule-card__slot">
-              <span class="time">4:00 – 4:30 PM</span>
-              <span class="class-name">Kids Jiu Jitsu <em>(Ages 4–8)</em></span>
-              <span class="class-note">No Rolling</span>
+              <span class="time">10:00 – 11:00 AM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
             </div>
             <div class="schedule-card__slot">
               <span class="time">5:30 – 6:30 PM</span>
-              <span class="class-name">Kids Jiu Jitsu <em>(Ages 9–12)</em></span>
-              <span class="class-note">Rolling</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
+            </div>
+          </div>
+
+          <div class="schedule-card schedule-card--kids">
+            <h3 class="schedule-card__day">Wednesday</h3>
+            <div class="schedule-card__slot">
+              <span class="time">10:00 – 11:00 AM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
+            </div>
+          </div>
+
+          <div class="schedule-card schedule-card--kids">
+            <h3 class="schedule-card__day">Thursday</h3>
+            <div class="schedule-card__slot">
+              <span class="time">5:30 – 6:30 PM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
+            </div>
+          </div>
+
+          <div class="schedule-card schedule-card--kids">
+            <h3 class="schedule-card__day">Friday</h3>
+            <div class="schedule-card__slot">
+              <span class="time">10:00 – 11:00 AM</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
             </div>
           </div>
 
@@ -483,8 +529,7 @@
             <h3 class="schedule-card__day">Saturday</h3>
             <div class="schedule-card__slot">
               <span class="time">10:00 – 11:00 AM</span>
-              <span class="class-name">Kids Jiu Jitsu <em>(All Ages)</em></span>
-              <span class="class-note">Rolling</span>
+              <span class="class-name">Kids Jiu Jitsu <em>(Ages 5+)</em></span>
             </div>
           </div>
 
@@ -525,6 +570,18 @@
           <ul class="pricing-card__features">
             <li>Gi or NoGi classes</li>
             <li>Fundamentals &amp; all-levels</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--block">Get Started</a>
+        </div>
+
+        <!-- Kids membership — covers every class on the Kids schedule -->
+        <div class="pricing-card fade-in">
+          <p class="pricing-card__name">Kids</p>
+          <p class="pricing-card__price">$100<span>/mo</span></p>
+          <p class="pricing-card__detail">All kids classes</p>
+          <ul class="pricing-card__features">
+            <li>Ages 5+</li>
+            <li>Morning &amp; evening classes</li>
           </ul>
           <a href="#contact" class="btn btn--outline btn--block">Get Started</a>
         </div>

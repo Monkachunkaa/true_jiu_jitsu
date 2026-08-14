@@ -661,44 +661,17 @@
 
 /* ==========================
    KIDS TABLE OVERRIDES
-   The kids table only has 2 columns, so cap its width.
+   The kids table uses the same 6 day columns as the adults
+   table, so it takes the full width — no max-width cap.
    Header color swaps from red → blue to signal kids content.
    ========================== */
-.schedule-table--kids {
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .schedule-table--kids thead th {
   color: #4a9edd; /* blue accent — distinct from adults red */
-}
-
-/* class-note: the rolling/no-rolling label under class name */
-.schedule-table .class-note,
-.schedule-card__slot .class-note {
-  display: block;
-  font-size: var(--text-xs);
-  color: #4a9edd;
-  font-style: italic;
-  margin-top: 2px;
 }
 
 /* Kids mobile cards: blue day header instead of red */
 .schedule-card--kids .schedule-card__day {
   color: #4a9edd;
-}
-
-/* Kids slots have 3 lines (time, name, note), so let them wrap */
-.schedule-card--kids .schedule-card__slot {
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-
-.schedule-card--kids .schedule-card__slot .class-name,
-.schedule-card--kids .schedule-card__slot .class-note {
-  flex-basis: 100%;
-  text-align: left;
 }
 
 
